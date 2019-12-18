@@ -22,7 +22,7 @@ the argument list.
 }
 \examples{
 comm <- paste(c("Rscript --vanilla -e", "'", "library(ribiosArg);",
-             "existArg(c(\\"opt\\", \\"opt2\\", \\"opt3\\"))", "'",
+             "existArg(c(\"opt\", \"opt2\", \"opt3\"))", "'",
               "-opt abc -opt3"), collapse=" ")
 system(comm)
 }

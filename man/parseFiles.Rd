@@ -4,8 +4,13 @@
 \alias{parseFiles}
 \title{Parse files from command-line options}
 \usage{
-parseFiles(str, sep = ",", pattern = NULL, recursive = TRUE,
-  ignore.case = TRUE)
+parseFiles(
+  str,
+  sep = ",",
+  pattern = NULL,
+  recursive = TRUE,
+  ignore.case = TRUE
+)
 }
 \arguments{
 \item{str}{A character string}

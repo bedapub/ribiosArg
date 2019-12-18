@@ -35,7 +35,7 @@ parseStrings("veni, vidi, vici", trim=FALSE)
 parseStrings("I came, I saw, I conquered")
 
 # options are trimmed
-parseStrings("a,b,\\tc,d\\n")
+parseStrings("a,b,\tc,d\n")
 # it works also with only one option
 parseStrings("a")
 # more than one separators
