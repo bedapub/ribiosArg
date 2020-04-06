@@ -1,15 +1,21 @@
 #include <Rinternals.h>
 
-#include "init.h"
+#include "argparse.h" 
+#include "ribios_arg.h"
 
-#include "argparse.h"
-#include "stdlib.h"
-#include "string.h"
-#include "format.h"
-#include "log.h"
-#include "arg.h"
-#include "hlrmisc.h"
+// following functions are exported from ribiosUtils and to be linked
+// usage
+// strReplace
+// arg_init
+// arg_isInit
+// arg_getPos
+// arg_present
 
+// The following macros are copied from ribiosUtils
+#define arg_get(name) arg_getPos(name,1)
+#define hlr_calloc(nelem,elsize) (++hlr_allocCnt,hlr_callocs(nelem,elsize))
+
+// The following macros are defined for ribiosUtils
 #define rstr2c(x) strdup(CHAR(STRING_ELT((x),0)))
 #define rstrVec2c(x,i) strdup(CHAR(STRING_ELT((x),(i))))
 #define checkInit()   if(!arg_isInit()) { \
@@ -20,10 +26,12 @@
 
 char* msg="";
 
+// @importFrom ribiosUtils usage
 void usagef (int level) {
   usage(msg);
 }
 
+// @importFrom ribiosUtils strReplace hlr_calloc arg_init
 SEXP rarg_parse(SEXP argc, SEXP argv, SEXP optargs, SEXP reqargs, SEXP usage) {
   int i;
   int rargc;
@@ -55,16 +63,19 @@ SEXP rarg_parse(SEXP argc, SEXP argv, SEXP optargs, SEXP reqargs, SEXP usage) {
   return(ScalarInteger(res));
 }
 
+// @importFrom ribiosUtils arg_isInit
 SEXP rarg_isInit() {
   return ScalarLogical(arg_isInit());
 }
 
+// @importFrom ribiosUtils arg_get
 SEXP rarg_get(SEXP arg) {
   checkInit();
   char* carg=rstr2c(arg);
   return(mkString(arg_get(carg)));
 }
 
+// @importFrom ribiosUtils arg_getPos
 SEXP rarg_getPos(SEXP arg, SEXP pos) {
   checkInit();
   char* carg=rstr2c(arg);
@@ -72,6 +83,7 @@ SEXP rarg_getPos(SEXP arg, SEXP pos) {
   return(mkString(arg_getPos(carg, cpos)));
 }
 
+// @importFrom ribiosUtils arg_present
 SEXP rarg_present(SEXP arg) {
   checkInit();
   int pre=arg_present(rstr2c(arg));
