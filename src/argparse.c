@@ -3,14 +3,6 @@
 #include "argparse.h" 
 #include "ribios_arg.h"
 
-// following functions are exported from ribiosUtils and to be linked
-// usage
-// strReplace
-// arg_init
-// arg_isInit
-// arg_getPos
-// arg_present
-
 // The following macros are copied from ribiosUtils
 int hlr_allocCnt=0;
 #define arg_get(name) arg_getPos(name,1)
