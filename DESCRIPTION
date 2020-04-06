@@ -3,11 +3,16 @@ Type: Package
 Title: Command-line argument handling in R scripting
 Version: 1.3-0
 Date: 2020-04-06
-Author: Jitao David Zhang <jitao_david.zhang@roche.com>
-Maintainer: Jitao David Zhang <jitao_david.zhang@roche.com>
+Authors@R: 
+  person(given = "Jitao David",
+         family = "Zhang",
+         role = c("aut", "cre", "ctb"),
+         email = "jitao_david.zhang@roche.com",
+         comment = c(ORCID="0000-0002-3085-0909"))
 Description: Functions to handle command-line arguments in R scripting.
-Depends: ribiosUtils
+Depends: ribiosUtils (>= 1.5.9)
 LinkingTo: ribiosUtils
 License: GPL-3
+Encoding: UTF-8
 LazyLoad: yes
 RoxygenNote: 7.1.0
