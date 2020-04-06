@@ -1,6 +1,6 @@
 #include <R_ext/Rdynload.h>
 #include <R_ext/Visibility.h>
-#include "init.h"
+#include "ribios_arg.h"
 
 static const R_CallMethodDef callMethods[] = {
   CALLMETHOD_DEF(rarg_parse, 5),
