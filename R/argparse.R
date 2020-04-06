@@ -120,6 +120,7 @@ argIsInit <- function() .Call(C_rarg_isInit)
 #'
 #' @param opt Character string, option name
 #' 
+#' @rdname argParse
 #' @export
 argPresent <- function(opt) {
     if(isDebugging()) {

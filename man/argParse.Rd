@@ -7,6 +7,8 @@
 \title{Parser of command-line parameters in BIOS style}
 \usage{
 argParse(optargs, reqargs, usage = paste(scriptName(), "-h"), strict = TRUE)
+
+argPresent(opt)
 }
 \arguments{
 \item{optargs}{String describing optional arguments. Syntax: \code{<optname1>[,paramcnt1] <optname2>[,paramcnt2]\dots}. Example: \dQuote{verbose outfile,1} means the command line has the syntax \code{prog [-verbose] [outfile name]}. It can be an empty string to express \dQuote{no options}. The value for \code{paramcnt} is 0.}
@@ -16,6 +18,8 @@ argParse(optargs, reqargs, usage = paste(scriptName(), "-h"), strict = TRUE)
 \item{usage}{A character string to be printed if the command-line option parsing fails}
 
 \item{strict}{Logical, are extra un-prefixed parameters allowed? If set to \code{TRUE}, the un-prefixed parameters (which must be at the end of the command line) will be returned as a character vector.}
+
+\item{opt}{Character string, option name}
 }
 \value{
 \code{argParse} is used for the side effects. If \code{strict} is set to
@@ -30,6 +34,8 @@ session quits while printing the error message.
 }
 \description{
 Parser of command-line parameters in BIOS style
+
+Test whether the given option is present in the command line or not
 }
 \details{
 \code{argParse} must be called before \code{argGet},\code{argGetPos}

@@ -3,7 +3,10 @@
 \docType{package}
 \name{ribiosArg-package}
 \alias{ribiosArg-package}
-\title{Command-line argument handling in for R scripting}
+\title{Command-line argument handling for R scripting}
+\description{
+Provides command-line argument handling for R scripting
+}
 \author{
 Jitao David Zhang <jitao_david.zhang@roche.com>
 }
