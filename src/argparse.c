@@ -12,8 +12,10 @@
 // arg_present
 
 // The following macros are copied from ribiosUtils
+int hlr_allocCnt=0;
 #define arg_get(name) arg_getPos(name,1)
 #define hlr_calloc(nelem,elsize) (++hlr_allocCnt,hlr_callocs(nelem,elsize))
+#define hlr_free(x) ((x) ? free(x),--hlr_allocCnt,x=0,1 : 0)
 
 // The following macros are defined for ribiosUtils
 #define rstr2c(x) strdup(CHAR(STRING_ELT((x),0)))
@@ -29,6 +31,7 @@ char* msg="";
 // @importFrom ribiosUtils usage
 void usagef (int level) {
   usage(msg);
+  level++; // no logic: just to avoid the warning that level is not used
 }
 
 // @importFrom ribiosUtils strReplace hlr_calloc arg_init
