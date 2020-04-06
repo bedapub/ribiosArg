@@ -15,4 +15,13 @@ void attribute_visible R_init_ribiosArg(DllInfo *info) {
   R_registerRoutines(info, NULL, callMethods, NULL, NULL);
   R_useDynamicSymbols(info, FALSE);
   R_forceSymbols(info, TRUE);
+
+  // C functions implemented in ribiosUtils
+  usage = (void(*)(char*, ...)) R_GetCCallable("ribiosUtils", "usage");
+  strReplace = (void(*)(char**, char*)) R_GetCCallable("ribiosUtils", "strReplace");
+  arg_init = (int(*)(int, char*[], char*, char*, void (*usagef)(int))) R_GetCCallable("ribiosUtils", "arg_init");
+  arg_isInit = (int(*)(void)) R_GetCCallable("ribiosUtils", "arg_isInit");
+  arg_getPos = (char*(*)(char*, int)) R_GetCCallable("ribiosUtils", "arg_getPos");
+  arg_present = (int(*)(char*)) R_GetCCallable("ribiosUtils", "arg_present");
+  hlr_callocs = (void*(*)(size_t, size_t)) R_GetCCallable("ribiosUtils", "hlr_callocs");
 }
