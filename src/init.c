@@ -11,6 +11,15 @@ static const R_CallMethodDef callMethods[] = {
   {NULL, NULL, 0}
 };
 
+// define imports from ribiosUtils
+void(*usage)(char*, ...);
+void(*strReplace)(char**, char*);
+int(*arg_init)(int, char*[], char*, char*, void (*usagef)(int));
+int(*arg_isInit)(void);
+char*(*arg_getPos)(char*, int);
+int(*arg_present)(char*);
+void*(*hlr_callocs)(size_t, size_t);
+
 void attribute_visible R_init_ribiosArg(DllInfo *info) {
   R_registerRoutines(info, NULL, callMethods, NULL, NULL);
   R_useDynamicSymbols(info, FALSE);
