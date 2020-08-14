@@ -11,6 +11,15 @@ extern "C" {
 
 #define CALLMETHOD_DEF(fun, numArgs) {#fun, (DL_FUNC) &fun, numArgs}
 
+// functions from ribiosUtils
+extern void(*usage)(char*, ...);
+extern void(*strReplace)(char**, char*);
+extern int(*arg_init)(int, char*[], char*, char*, void (*usagef)(int));
+extern int(*arg_isInit)(void);
+extern char*(*arg_getPos)(char*, int);
+extern int(*arg_present)(char*);
+extern void*(*hlr_callocs)(size_t, size_t);
+
 extern SEXP rarg_isInit();
 extern SEXP rarg_parse(SEXP, SEXP, SEXP, SEXP, SEXP);
 extern SEXP rarg_get(SEXP);
