@@ -1,8 +1,8 @@
 Package: ribiosArg
 Type: Package
 Title: Argument handling for command-line, stand-alone R scripts
-Version: 1.3-0
-Date: 2020-04-06
+Version: 1.4-0
+Date: 2020-08-14
 Authors@R: 
   person(given = "Jitao David",
          family = "Zhang",
@@ -15,4 +15,4 @@ LinkingTo: ribiosUtils
 License: GPL-3
 Encoding: UTF-8
 LazyLoad: yes
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
