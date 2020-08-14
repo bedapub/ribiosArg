@@ -1,6 +1,6 @@
 #include <Rinternals.h>
 
-#include "argparse.h" 
+#include "argparse.h"
 #include "ribios_arg.h"
 
 // The following macros are copied from ribiosUtils
