@@ -2,10 +2,19 @@
 % Please edit documentation in R/ribiosArg.R
 \docType{package}
 \name{ribiosArg-package}
+\alias{ribiosArg}
 \alias{ribiosArg-package}
 \title{Command-line argument handling for R scripting}
 \description{
 Provides command-line argument handling for R scripting
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/bedapub/ribiosArg}
+  \item Report bugs at \url{https://github.com/bedapub/ribiosArg/issues}
+}
+
 }
 \author{
 Jitao David Zhang <jitao_david.zhang@roche.com>
