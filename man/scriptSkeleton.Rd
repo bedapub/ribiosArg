@@ -11,7 +11,7 @@ scriptSkeleton(file = stdout())
 }
 \value{
 Invisibly returns the character vector of skeleton lines.
-Called for its side effect of writing to \code{file}.
+  Called for its side effect of writing to \code{file}.
 }
 \description{
 Generate a Rscript with its skeleton
