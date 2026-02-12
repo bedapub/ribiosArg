@@ -8,3 +8,4 @@ symbols.rds
 .Rhistory
 .Rproj.user
 cran-fixes.patch
+*.tar.gz
