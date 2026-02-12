@@ -2,9 +2,11 @@
 #'
 #' @param file Output file. By default the function writes to standard output.
 #'
+#' @return Invisibly returns the character vector of skeleton lines.
+#'   Called for its side effect of writing to \code{file}.
 #' @export
 #' @examples
-#' scriptSkeleton()
+#' scriptSkeleton(file = file.path(tempdir(), "myscript.R"))
 
 scriptSkeleton <- function(file=stdout()) {
     sentences <- c("#!/usr/bin/env Rscript",

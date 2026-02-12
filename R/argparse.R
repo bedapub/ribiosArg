@@ -37,7 +37,7 @@
 #' @useDynLib ribiosArg, .registration=TRUE, .fixes="C_"
 #' 
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' argParse("verbose threshold,2", "infile outfile",
 #'          usage="prog [-infile ]infile [-outfile ]outfile [-verbose] [-threshold MIN MAX]")
 #' argIsInit()
@@ -147,7 +147,7 @@ argPresent <- function(opt) {
 #' @seealso \code{\link{argParse}}, \code{\link{argGet}}, and \code{\link{argPresent}}
 #'
 #' @examples
-#' \dontrun{argGetPos("thresholds", ind=2)}
+#' \donttest{argGetPos("thresholds", ind=2)}
 #'
 #' @export 
 argGetPos <- function(opt, ind=1L, default=NULL, choices=NULL) {
@@ -182,7 +182,7 @@ argGetPos <- function(opt, ind=1L, default=NULL, choices=NULL) {
 #' @seealso \code{\link{argParse}}, \code{\link{argGetPos}}, and \code{\link{argPresent}}
 #'
 #' @examples
-#' \dontrun{argGet("infile")}
+#' \donttest{argGet("infile")}
 #'
 #' @export
 argGet <- function(opt, default=NULL, choices=NULL) {

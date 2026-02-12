@@ -1,17 +1,19 @@
 #' Prepare the environment for a script
-#' @aliases initScript
-#' 
+#'
 #' This function is called at the beginning of an Rscript, in order to
 #' prepare the R environment to run in a script setting.
 #'
-#' @return Only side effect is used
-#' 
+#' @return No return value, called for side effects.
+#'
+#' @aliases initScript
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #'   scriptInit()
 #' }
 scriptInit <- function() {
+  old <- options()
+  on.exit(options(old))
   if(interactive()) {
     setDebug()
   } else {

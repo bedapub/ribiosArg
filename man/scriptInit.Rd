@@ -3,38 +3,19 @@
 \name{scriptInit}
 \alias{scriptInit}
 \alias{initScript}
-\alias{This}
-\alias{function}
-\alias{is}
-\alias{called}
-\alias{at}
-\alias{the}
-\alias{beginning}
-\alias{of}
-\alias{an}
-\alias{Rscript,}
-\alias{in}
-\alias{order}
-\alias{to}
-\alias{prepare}
-\alias{R}
-\alias{environment}
-\alias{run}
-\alias{a}
-\alias{script}
-\alias{setting.}
 \title{Prepare the environment for a script}
 \usage{
 scriptInit()
 }
 \value{
-Only side effect is used
+No return value, called for side effects.
 }
 \description{
-Prepare the environment for a script
+This function is called at the beginning of an Rscript, in order to
+prepare the R environment to run in a script setting.
 }
 \examples{
-\dontrun{
+\donttest{
   scriptInit()
 }
 }

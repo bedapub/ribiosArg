@@ -15,6 +15,9 @@ parseNumVec(str, expLen = 2, failVal = c(5, 5), sep = ",")
 
 \item{sep}{Separator in the character string, default ","}
 }
+\value{
+A numeric vector of the parsed values, or \code{failVal} if parsing fails.
+}
 \description{
 Numeric vectors can be given as arguments in two ways: (1) separated by
 blanks or (2) separated by other common separators, such as comma

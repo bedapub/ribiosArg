@@ -25,7 +25,7 @@ Get the value of an named argument with the given position
 The parsing is performed at C-level. If the argument accepts only one value, users can also call argGet(opt, default=NULL, choices=NULL)
 }
 \examples{
-\dontrun{argGetPos("thresholds", ind=2)}
+\donttest{argGetPos("thresholds", ind=2)}
 
 }
 \seealso{

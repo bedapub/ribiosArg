@@ -13,6 +13,7 @@
 #' @param failVal If the parsing failed (for example length not correct, or non-numeric values were provided, this value will be returned
 #' @param sep Separator in the character string, default ","
 #'
+#' @return A numeric vector of the parsed values, or \code{failVal} if parsing fails.
 #' @seealso \code{\link{argGet}}
 #' 
 #' @export
@@ -127,6 +128,7 @@ parsePairs <- function(str, collapse=",", sep="=",
 #' @param make.names Should names be converted to adhere to the rule of variable names in R
 #' @param verbose Logical vector
 #'
+#' @return A factor with the specified levels.
 #' @export
 #' @examples
 #' makeFactor(c("A", "B", "C", "C", "A"), levels=LETTERS[3:1])
@@ -178,6 +180,7 @@ makeFactor <- function(groups, levels=NULL, make.names=TRUE, verbose=FALSE) {
 #' @param make.names Logical, should names be converted to adhere to the rule of variable names in R
 #' @param collapse Character used in \code{relevels} to collapse different levels
 #'
+#' @return A factor parsed from the input string with the specified levels.
 #' @export
 #' @examples
 #' parseFactor("A,B,C,B,A", rlevels="A,B,C")
@@ -194,7 +197,7 @@ makeFactor <- function(groups, levels=NULL, make.names=TRUE, verbose=FALSE) {
 #' groups <- factor(c("B", "C", "A", "D"), levels=c("D","C","A","B"))
 #' makeFactor(groups)
 #' 
-#' \dontrun{
+#' \donttest{
 #' groups <- c("ATest", "Control", "Control", "ATest")
 #' levels <- c("Control", "ATest", "Unknown")
 #' makeFactor(groups, levels)
@@ -233,6 +236,7 @@ isDir <- function(str) file.info(str)$isdir
 #' @param recursive In cse of directory or compressed files, whether files should be found recursively
 #' @param ignore.case In case of directory or compressed files, whether case should be ignored
 #'
+#' @return A character vector of file paths.
 #' @importFrom ribiosUtils extname
 #' @importFrom utils untar unzip
 #' @export
