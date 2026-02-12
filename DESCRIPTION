@@ -12,7 +12,8 @@ Authors@R:
     person("F.Hoffmann-La Roche AG", role="cph"))
 Description: Provides functions to handle command-line arguments for R
     scripting. It enables building stand-alone R programs that accept and
-    parse command-line options in BIOS style.
+    parse command-line options in 'BIOS' style.
+    Zhang (2025) <https://github.com/bedapub/ribiosArg>.
 Depends:
     R (>= 3.4.0),
     ribiosUtils
