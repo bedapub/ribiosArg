@@ -1,7 +1,7 @@
 2026-02-12: v1.5-1
-  + Auto-initialize arg parser on package load in script mode (.onLoad in R/zzz.R)
   + Add R-level guards in argPresent, argGet, and argGetPos to return safe defaults when the parser is uninitialized
   + Export argIsInit() for users to check parser initialization status
+  + argParse returns silently instead of stopping when no script context is detected (fixes --run-donttest examples)
 
 2015-09-04: v1.1-18
   + rarg_parse: fixed a bug caused by passing SEXP as a size_t object
