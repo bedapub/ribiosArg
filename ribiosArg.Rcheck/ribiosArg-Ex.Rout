@@ -1,0 +1,370 @@
+
+R version 4.5.2 (2025-10-31) -- "[Not] Part in a Rumble"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "ribiosArg"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> library('ribiosArg')
+Loading required package: ribiosUtils
+
+Attaching package: ‘ribiosArg’
+
+The following objects are masked from ‘package:ribiosUtils’:
+
+    isDebugging, isIntDebugging, scriptInit, setDebug, unsetDebug
+
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("argGet")
+> ### * argGet
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: argGet
+> ### Title: Parse an argument
+> ### Aliases: argGet
+> 
+> ### ** Examples
+> 
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("argGetPos")
+> ### * argGetPos
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: argGetPos
+> ### Title: Parse an argument with the given position
+> ### Aliases: argGetPos
+> 
+> ### ** Examples
+> 
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("argParse")
+> ### * argParse
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: argParse
+> ### Title: Parser of command-line parameters in BIOS style
+> ### Aliases: argParse argPresent
+> 
+> ### ** Examples
+> 
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("existArg")
+> ### * existArg
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: existArg
+> ### Title: Test if named arguments exists
+> ### Aliases: existArg
+> 
+> ### ** Examples
+> 
+> comm <- paste(c("Rscript --vanilla -e", "'", "library(ribiosArg);",
++              "existArg(c(\"opt\", \"opt2\", \"opt3\"))", "'",
++               "-opt abc -opt3"), collapse=" ")
+> system(comm)
+Loading required package: ribiosUtils
+
+Attaching package: ‘ribiosArg’
+
+The following objects are masked from ‘package:ribiosUtils’:
+
+    isDebugging, isIntDebugging, scriptInit, setDebug, unsetDebug
+
+  opt  opt2  opt3 
+ TRUE FALSE  TRUE 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("isDebugging")
+> ### * isDebugging
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: isDebugging
+> ### Title: Test whether the environment is set for debugging
+> ### Aliases: isDebugging
+> 
+> ### ** Examples
+> 
+> isDebugging()
+[1] FALSE
+> unsetDebug()
+> isDebugging()
+[1] FALSE
+> setDebug()
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("makeFactor")
+> ### * makeFactor
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: makeFactor
+> ### Title: Make a factor
+> ### Aliases: makeFactor
+> 
+> ### ** Examples
+> 
+> makeFactor(c("A", "B", "C", "C", "A"), levels=LETTERS[3:1])
+[1] A B C C A
+Levels: C B A
+> makeFactor(c("A 1", "B 2", "C 3", "C 3", "A 1"),
++     levels=c("A 1", "C 3", "B 2"),
++     make.names=TRUE)
+[1] A.1 B.2 C.3 C.3 A.1
+Levels: A.1 C.3 B.2
+> makeFactor(c("A 1", "B 2", "C 3", "C 3", "A 1"),
++     levels=c("A 1", "C 3", "B 2"),
++     make.names=FALSE)
+[1] A 1 B 2 C 3 C 3 A 1
+Levels: A 1 C 3 B 2
+> makeFactor(c("A 1", "B 2", "C 3", "C 3", "A 1"),
++     levels=c("A 1", "C 3", "B 2"),
++     make.names=FALSE, verbose=TRUE)
+[1] A 1 B 2 C 3 C 3 A 1
+Levels: A 1 C 3 B 2
+> 
+> 
+> 
+> cleanEx()
+> nameEx("parseFactor")
+> ### * parseFactor
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: parseFactor
+> ### Title: Parse a character string into factor
+> ### Aliases: parseFactor
+> 
+> ### ** Examples
+> 
+> parseFactor("A,B,C,B,A", rlevels="A,B,C")
+[1] A B C B A
+Levels: A B C
+> 
+> rgroup <- "A,B,C,D,B,C,A,D,B"
+> rlevels <- "D,A,B,C"
+> parseFactor(rgroup, rlevels)
+[1] A B C D B C A D B
+Levels: D A B C
+> 
+> groups <- c("ATest", "Control", "Control", "ATest")
+> levels <- c("Control", "ATest")
+> makeFactor(groups, levels)
+[1] ATest   Control Control ATest  
+Levels: Control ATest
+> 
+> # if 'groups' is a factor and 'levels' NULL or missing, its levels are respected
+> groups <- factor(c("B", "C", "A", "D"), levels=c("D","C","A","B"))
+> makeFactor(groups)
+[1] B C A D
+Levels: D C A B
+> 
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("parseNumVec")
+> ### * parseNumVec
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: parseNumVec
+> ### Title: Parse a character string into a numveric vector
+> ### Aliases: parseNumVec
+> 
+> ### ** Examples
+> 
+> parseNumVec("3,7,9", expLen=3)
+[1] 3 7 9
+> 
+> 
+> 
+> cleanEx()
+> nameEx("parsePairs")
+> ### * parsePairs
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: parsePairs
+> ### Title: Parse key-value pairs from a character string
+> ### Aliases: parsePairs
+> 
+> ### ** Examples
+> 
+> 
+> parsePairs("A=3,B=4,C=5", collapse=",", sep="=")
+    key value
+A=3   A     3
+B=4   B     4
+C=5   C     5
+> parsePairs("A:3|B:4|C:5", collapse="|", sep=":")
+   key value
+1    A  <NA>
+2       <NA>
+3    3  <NA>
+4    |  <NA>
+5    B  <NA>
+6       <NA>
+7    4  <NA>
+8    |  <NA>
+9    C  <NA>
+10      <NA>
+11   5  <NA>
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("parseStrings")
+> ### * parseStrings
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: parseStrings
+> ### Title: Parse a character string into string vectors
+> ### Aliases: parseStrings
+> 
+> ### ** Examples
+> 
+> parseStrings("veni, vidi, vici")
+  veni   vidi   vici 
+"veni" "vidi" "vici" 
+> parseStrings("veni, vidi, vici", trim=FALSE)
+[1] "veni"  " vidi" " vici"
+> parseStrings("I came, I saw, I conquered")
+       I came         I saw   I conquered 
+     "I came"       "I saw" "I conquered" 
+> 
+> # options are trimmed
+> parseStrings("a,b,\tc,d\n")
+  a   b \tc d\n 
+"a" "b" "c" "d" 
+> # it works also with only one option
+> parseStrings("a")
+  a 
+"a" 
+> # more than one separators
+> parseStrings("a,b,c;d", collapse=",|;")
+  a   b   c   d 
+"a" "b" "c" "d" 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("scriptInit")
+> ### * scriptInit
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: scriptInit
+> ### Title: Prepare the environment for a script
+> ### Aliases: scriptInit initScript
+> 
+> ### ** Examples
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("scriptName")
+> ### * scriptName
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: scriptName
+> ### Title: Returns the file name of the Rscript being executed
+> ### Aliases: scriptName
+> 
+> ### ** Examples
+> 
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("scriptPath")
+> ### * scriptPath
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: scriptPath
+> ### Title: Returns the path of the Rscript being executed
+> ### Aliases: scriptPath
+> 
+> ### ** Examples
+> 
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("scriptSkeleton")
+> ### * scriptSkeleton
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: scriptSkeleton
+> ### Title: Generate a Rscript with its skeleton
+> ### Aliases: scriptSkeleton
+> 
+> ### ** Examples
+> 
+> scriptSkeleton(file = file.path(tempdir(), "myscript.R"))
+> 
+> 
+> 
+> ### * <FOOTER>
+> ###
+> cleanEx()
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  0.058 0.005 0.183 0.091 0.031 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

@@ -204,7 +204,7 @@ makeFactor <- function(groups, levels=NULL, make.names=TRUE, verbose=FALSE) {
 #' 
 #' groups <- c("ATest", "Control", "Control", "ATest", "BTest")
 #' levels <- c("Control", "ATest")
-#' try(makeFactor(groups, levels))
+#' makeFactor(groups, levels)
 #' }
 #' 
 parseFactor <- function(str, rlevels=NULL, make.names=TRUE, collapse=",") { ## CL=command line

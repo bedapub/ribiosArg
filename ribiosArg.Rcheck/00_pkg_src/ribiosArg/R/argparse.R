@@ -69,8 +69,8 @@ argParse <- function(optargs, reqargs, usage=paste(scriptName(), "-h"), strict=T
     efind <- which(isE)
     allComm <- allComm[-(1:(efind+1))]
   } else {
-    return(invisible(NULL))
-  }
+    stop("This should not happen: no parameters in the form of '-f' or '--f' is detected. Please contact the developer")
+  } 
   comm <- allComm[!grepl("^--", allComm)]
   ## the following code was valid till R-3.0.x. 
   ##  if("--args" %in% allComm) {

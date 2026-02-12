@@ -3,7 +3,7 @@ Type: Package
 Title: Argument Handling for Command-Line, Stand-Alone R Scripts
 Version: 1.5.0
 Date: 2026-01-24
-Authors@R:
+Authors@R: 
   c(person(given = "Jitao David",
            family = "Zhang",
            role = c("aut", "cre", "ctb"),
@@ -13,17 +13,19 @@ Description: Provides functions to handle command-line arguments for R
     scripting. It enables building stand-alone R programs that accept and
     parse command-line options in 'BIOS' style.
     Zhang (2025) <https://github.com/bedapub/ribiosArg>.
-Depends:
-    R (>= 3.4.0),
-    ribiosUtils
+Depends: R (>= 3.4.0), ribiosUtils
 LinkingTo: ribiosUtils
-Imports:
-    utils
-Suggests:
-    testthat
+Imports: utils
+Suggests: testthat
 License: GPL-3
 URL: https://github.com/bedapub/ribiosArg
 BugReports: https://github.com/bedapub/ribiosArg/issues
 Encoding: UTF-8
 LazyLoad: yes
 RoxygenNote: 7.3.3
+NeedsCompilation: yes
+Packaged: 2026-02-12 10:18:21 UTC; david
+Author: Jitao David Zhang [aut, cre, ctb] (ORCID:
+    <https://orcid.org/0000-0002-3085-0909>)
+Maintainer: Jitao David Zhang <jitao_david.zhang@roche.com>
+Built: R 4.5.2; x86_64-pc-linux-gnu; 2026-02-12 10:21:04 UTC; unix

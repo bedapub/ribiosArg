@@ -43,7 +43,7 @@ makeFactor(groups, levels)
 
 groups <- c("ATest", "Control", "Control", "ATest", "BTest")
 levels <- c("Control", "ATest")
-try(makeFactor(groups, levels))
+makeFactor(groups, levels)
 }
 
 }
