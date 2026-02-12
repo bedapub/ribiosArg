@@ -9,9 +9,13 @@ scriptSkeleton(file = stdout())
 \arguments{
 \item{file}{Output file. By default the function writes to standard output.}
 }
+\value{
+Invisibly returns the character vector of skeleton lines.
+  Called for its side effect of writing to \code{file}.
+}
 \description{
 Generate a Rscript with its skeleton
 }
 \examples{
-scriptSkeleton()
+scriptSkeleton(file = file.path(tempdir(), "myscript.R"))
 }

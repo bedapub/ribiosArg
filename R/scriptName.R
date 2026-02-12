@@ -15,7 +15,7 @@
 #'
 #' @export
 #' @examples
-#' \dontrun{scriptName()}
+#' \donttest{scriptName()}
 #'
 scriptName <- function() {
   filename <- grep("--file=", commandArgs(), value=TRUE)
@@ -49,7 +49,7 @@ scriptName <- function() {
 #'
 #' @export
 #' @examples
-#' \dontrun{scriptPath()}
+#' \donttest{scriptPath()}
 #'
 scriptPath <- function() {
   sname <- scriptName()

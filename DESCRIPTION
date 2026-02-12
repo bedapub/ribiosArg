@@ -9,10 +9,13 @@ Authors@R:
            role = c("aut", "cre", "ctb"),
            email = "jitao_david.zhang@roche.com",
            comment = c(ORCID="0000-0002-3085-0909")),
-    person("F.Hoffmann-La Roche AG", role="cph"))
+    person(given = "Balazs",
+           family = "Banfai",
+           role = "ctb"))
 Description: Provides functions to handle command-line arguments for R
     scripting. It enables building stand-alone R programs that accept and
-    parse command-line options in BIOS style.
+    parse command-line options in 'BIOS' style.
+    Zhang (2025) <https://github.com/bedapub/ribiosArg>.
 Depends:
     R (>= 3.4.0),
     ribiosUtils

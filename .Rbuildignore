@@ -18,3 +18,5 @@
 ^bin$
 ^CRAN-SUBMISSION$
 ^CRAN-PREPARATION\.md$
+^CRAN-FEEDBACK\.md$
+cran-fixes.patch

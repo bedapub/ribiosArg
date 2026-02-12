@@ -15,6 +15,9 @@ parseFactor(str, rlevels = NULL, make.names = TRUE, collapse = ",")
 
 \item{collapse}{Character used in \code{relevels} to collapse different levels}
 }
+\value{
+A factor parsed from the input string with the specified levels.
+}
 \description{
 Parse a character string into factor
 }
@@ -33,14 +36,14 @@ makeFactor(groups, levels)
 groups <- factor(c("B", "C", "A", "D"), levels=c("D","C","A","B"))
 makeFactor(groups)
 
-\dontrun{
+\donttest{
 groups <- c("ATest", "Control", "Control", "ATest")
 levels <- c("Control", "ATest", "Unknown")
 makeFactor(groups, levels)
 
 groups <- c("ATest", "Control", "Control", "ATest", "BTest")
 levels <- c("Control", "ATest")
-makeFactor(groups, levels)
+try(makeFactor(groups, levels))
 }
 
 }

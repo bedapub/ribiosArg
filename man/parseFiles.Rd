@@ -23,6 +23,9 @@ parseFiles(
 
 \item{ignore.case}{In case of directory or compressed files, whether case should be ignored}
 }
+\value{
+A character vector of file paths.
+}
 \description{
 Parse files from command line option, which can be (1) a string vector of files, (2) a file listing input files (e.g. pointer file), (3) a directory, or (4) a zip/tar/gz file (determined by suffix). In the later two cases, file patterns can be specified.
 }

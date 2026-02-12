@@ -15,6 +15,9 @@ makeFactor(groups, levels = NULL, make.names = TRUE, verbose = FALSE)
 
 \item{verbose}{Logical vector}
 }
+\value{
+A factor with the specified levels.
+}
 \description{
 Make a factor
 }

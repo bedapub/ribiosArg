@@ -7,3 +7,6 @@ symbols.rds
 *.dll
 .Rhistory
 .Rproj.user
+cran-fixes.patch
+*.tar.gz
+ribiosArg.Rcheck

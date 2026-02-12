@@ -2,7 +2,6 @@
 % Please edit documentation in R/argparse.R
 \name{argParse}
 \alias{argParse}
-\alias{argIsInit}
 \alias{argPresent}
 \title{Parser of command-line parameters in BIOS style}
 \usage{
@@ -53,7 +52,7 @@ Test whether the given option is present in the command line or not
   \code{default} value will be returned.
 }
 \examples{
-\dontrun{
+\donttest{
 argParse("verbose threshold,2", "infile outfile",
          usage="prog [-infile ]infile [-outfile ]outfile [-verbose] [-threshold MIN MAX]")
 argIsInit()

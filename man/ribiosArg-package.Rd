@@ -2,11 +2,10 @@
 % Please edit documentation in R/ribiosArg.R
 \docType{package}
 \name{ribiosArg-package}
-\alias{ribiosArg}
 \alias{ribiosArg-package}
-\title{Command-line argument handling for R scripting}
+\title{ribiosArg: Argument Handling for Command-Line, Stand-Alone R Scripts}
 \description{
-Provides command-line argument handling for R scripting
+Provides functions to handle command-line arguments for R scripting. It enables building stand-alone R programs that accept and parse command-line options in 'BIOS' style. Zhang (2025) \url{https://github.com/bedapub/ribiosArg}.
 }
 \seealso{
 Useful links:
@@ -17,5 +16,7 @@ Useful links:
 
 }
 \author{
-Jitao David Zhang <jitao_david.zhang@roche.com>
+\strong{Maintainer}: Jitao David Zhang \email{jitao_david.zhang@roche.com} (\href{https://orcid.org/0000-0002-3085-0909}{ORCID}) [contributor]
+
 }
+\keyword{internal}

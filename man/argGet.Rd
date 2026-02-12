@@ -23,7 +23,7 @@ Get the value of an named argument
 The parsing is performed at C-level. It is an abbreiviation of argGetPos(opt, ind=1, default=NULL, choices=NULL)
 }
 \examples{
-\dontrun{argGet("infile")}
+\donttest{argGet("infile")}
 
 }
 \seealso{

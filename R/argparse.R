@@ -1,5 +1,4 @@
 #' Parser of command-line parameters in BIOS style
-#' @aliases argIsInit
 #' @aliases argPresent
 #'
 #' @param optargs String describing optional arguments. Syntax: \code{<optname1>[,paramcnt1] <optname2>[,paramcnt2]\dots}. Example: \dQuote{verbose outfile,1} means the command line has the syntax \code{prog [-verbose] [outfile name]}. It can be an empty string to express \dQuote{no options}. The value for \code{paramcnt} is 0.
@@ -37,7 +36,7 @@
 #' @useDynLib ribiosArg, .registration=TRUE, .fixes="C_"
 #' 
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' argParse("verbose threshold,2", "infile outfile",
 #'          usage="prog [-infile ]infile [-outfile ]outfile [-verbose] [-threshold MIN MAX]")
 #' argIsInit()
@@ -70,8 +69,8 @@ argParse <- function(optargs, reqargs, usage=paste(scriptName(), "-h"), strict=T
     efind <- which(isE)
     allComm <- allComm[-(1:(efind+1))]
   } else {
-    stop("This should not happen: no parameters in the form of '-f' or '--f' is detected. Please contact the developer")
-  } 
+    return(invisible(NULL))
+  }
   comm <- allComm[!grepl("^--", allComm)]
   ## the following code was valid till R-3.0.x. 
   ##  if("--args" %in% allComm) {
@@ -114,6 +113,10 @@ argParse <- function(optargs, reqargs, usage=paste(scriptName(), "-h"), strict=T
   }
 }
 
+#' Check whether the argument parser has been initialized
+#'
+#' @return Logical, \code{TRUE} if \code{argParse} has been called, \code{FALSE} otherwise.
+#' @export
 argIsInit <- function() .Call(C_rarg_isInit)
 
 #' Test whether the given option is present in the command line or not
@@ -127,6 +130,7 @@ argPresent <- function(opt) {
         message("[DEBUGGIING] The script is running in an interactive session, e.g. debugging mode. FALSE is returned")
         return(FALSE)
     }
+    if(!isTRUE(argIsInit())) return(FALSE)
   .Call(C_rarg_present, opt)
 }
 
@@ -147,14 +151,15 @@ argPresent <- function(opt) {
 #' @seealso \code{\link{argParse}}, \code{\link{argGet}}, and \code{\link{argPresent}}
 #'
 #' @examples
-#' \dontrun{argGetPos("thresholds", ind=2)}
+#' \donttest{argGetPos("thresholds", ind=2)}
 #'
 #' @export 
 argGetPos <- function(opt, ind=1L, default=NULL, choices=NULL) {
   if(isDebugging()) {
     message("[DEBUGGIING] The script is running in an interactive session, e.g. debugging mode. Default value is returned")
     return(default)
-  }  
+  }
+  if(!isTRUE(argIsInit())) return(default)
   if(argPresent(opt)) {
       res <- .Call(C_rarg_getPos, opt,as.integer(ind))
       if(!is.null(choices) && !res %in% choices)
@@ -182,7 +187,7 @@ argGetPos <- function(opt, ind=1L, default=NULL, choices=NULL) {
 #' @seealso \code{\link{argParse}}, \code{\link{argGetPos}}, and \code{\link{argPresent}}
 #'
 #' @examples
-#' \dontrun{argGet("infile")}
+#' \donttest{argGet("infile")}
 #'
 #' @export
 argGet <- function(opt, default=NULL, choices=NULL) {
@@ -190,6 +195,7 @@ argGet <- function(opt, default=NULL, choices=NULL) {
     message("[DEBUGGIING] The script is running in an interactive session, e.g. debugging mode. Default value is returned")
     return(default)
   }
+  if(!isTRUE(argIsInit())) return(default)
   if(argPresent(opt)) {
       res <- .Call(C_rarg_get, opt)
       if(!is.null(choices) && !res %in% choices) {

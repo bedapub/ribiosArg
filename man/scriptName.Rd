@@ -20,7 +20,7 @@ When the R session was not initiated by a Rscript (i.e. there is no \code{--file
 Note that the function supports calling Rscript via \code{--file}  or \code{-f} with \code{R}. This applies to cases where a Rscript, marked as executable, and is called from the command line.
 }
 \examples{
-\dontrun{scriptName()}
+\donttest{scriptName()}
 
 }
 \seealso{

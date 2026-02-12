@@ -2,6 +2,7 @@
 
 export(argGet)
 export(argGetPos)
+export(argIsInit)
 export(argParse)
 export(argPresent)
 export(existArg)
