@@ -4,10 +4,10 @@
 \alias{scriptSkeleton}
 \title{Generate a Rscript with its skeleton}
 \usage{
-scriptSkeleton(file = stdout())
+scriptSkeleton(file)
 }
 \arguments{
-\item{file}{Output file. By default the function writes to standard output.}
+\item{file}{Output file. Use `file=stdout()` to write the output to standard output.}
 }
 \value{
 Invisibly returns the character vector of skeleton lines.
